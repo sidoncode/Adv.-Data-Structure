@@ -46,12 +46,12 @@ void dequeue(){
 }
 
 int main(){
-display();
-enqueue(5);
-enqueue(10);
-enqueue(1);
-enqueue(2);
-display();
-getch();
-return 0;
+    display();
+    enqueue(5);
+    enqueue(10);
+    enqueue(1);
+    enqueue(2);
+    display();
+    getch();
+    return 0;
 }
