@@ -1,5 +1,7 @@
 #include<iostream>
+
 using namespace std;
+
 #define max 5
 int top = -1;
 int stack[5];
