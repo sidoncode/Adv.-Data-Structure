@@ -1,112 +1,138 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include<conio.h>
-
-struct Node{
-    int data;
-    struct Node* link;
-};
-struct Node *first =NULL;
-
-
-int count =0;
-
-
-void insert_at_begin(){
-    struct Node *t; int x;
-    printf("Enter The data \n");
-    scanf("%d",&x);
-    t = (struct Node*)malloc(sizeof(struct Node));
-    if(first == NULL){
-        first = t;
-        first->data = x;
-        first->link = NULL;
-    }
-    else{
-        t->data = x;
-        t->link = first;
-        first = t;
-    }
+struct node {
+   int data;
+   struct node *next;
+   };  
+struct node *start = NULL;
+void insert_at_begin(int);
+void insert_at_end(int);
+void traverse();
+void delete_from_begin();
+void delete_from_end();
+int count = 0;     
+int main () {
+   int input, data;    
+   for (;;) {
+      printf("1. Insert an element at beginning of linked list.\n");
+      printf("2. Insert an element at end of linked list.\n");
+      printf("3. Traverse linked list.\n");
+      printf("4. Delete element from beginning.\n");
+      printf("5. Delete element from end.\n");
+      printf("6. Exit\n");   
+      scanf("%d", &input);   
+      if (input == 1) {
+         printf("Enter value of element\n");
+         scanf("%d", &data);
+         insert_at_begin(data);
+      }
+      else if (input == 2) {
+         printf("Enter value of element\n");
+         scanf("%d", &data);
+         insert_at_end(data);
+      }
+      else if (input == 3)
+         traverse();
+      else if (input == 4)
+         delete_from_begin();  
+      else if (input == 5)
+         delete_from_end();
+      else if (input == 6)
+         break;
+      else
+         printf("Please enter valid input.\n");      
+      }
+       
+      return 0;
+      getch();
 }
-
-void insert_at_end(){
-    struct Node* t;
-    int x;
-    printf("Enter the data\n");
-    scanf("%d",&x);
-    t = (struct Node*)malloc(sizeof(struct Node));
-    if(first == NULL){
-        first = t;
-        first->data = x;
-        first->link = NULL;
-    }
-    else{
-        struct Node* p;
-        p = first;
-        while (p != NULL){
-            p = p->link;
-        }
-        p->link = t;
-        p->data = x;
-        t->link = NULL;
-    }
+     
+void insert_at_begin(int x) {
+   struct node *t;   
+      t = (struct node*)malloc(sizeof(struct node));
+      count++;   
+      if (start == NULL) {
+         start = t;
+         start->data = x;
+         start->next = NULL;
+         return;
+      }
+      t->data = x;
+      t->next = start;
+      start = t;
 }
-void traverse(){
-    struct Node* p;
-    p = first;
-    if(p == NULL){
-        printf("The linkedlist is empty\n");
-    }
-    else{
-        while (p != NULL){
-            printf("The datas are %d",p->data);
-            p = p->link;
-        }
-    }
+     
+void insert_at_end(int x) {
+   struct node *t, *temp;    
+   t = (struct node*)malloc(sizeof(struct node));
+   count++;    
+   if (start == NULL) {
+      start = t;
+      start->data = x;
+      start->next = NULL;
+      return;
+   }    
+   temp = start;    
+   while (temp->next != NULL){
+      temp = temp->next;   
+      temp->next = t;
+      t->data    = x;
+      t->next    = NULL;
+   }
 }
+     
+void traverse() {
+   struct node *t;       
+   t = start;       
+   if (t == NULL) {
+      printf("Linked list is empty.\n");
+      return;
+   }    
+   printf("There are %d elements in linked list.\n", count);    
+   while (t->next != NULL) {
+      printf("%d\n", t->data);
+      t = t->next;
+   }
+   printf("%d\n", t->data);
+}
+     
 void delete_from_begin() {
    struct node *t;
-   int n;
-   if (first == NULL) {
+   int n;    
+   if (start == NULL) {
       printf("Linked list is already empty.\n");
       return;
-   }
-   
-   n = first->data;
-   t = first->link;
-   free(first);
-   first = t;
-   count--;
+   }    
+   n = start->data;
+   t = start->next;
+   free(start);
+   start = t;
+   count--;    
    printf("%d deleted from beginning successfully.\n", n);
-}
+}     
 void delete_from_end() {
-   struct Node *t, *u;
-   int n; 
-   if (first == NULL) {
-      printf("Linked list is already empty.\n");
-      return;
-   }
-   count--;
-   if (first->link == NULL) {
-      n = first->data;
-      free(first);
-      first = NULL;
+   struct node *t, *u;
+   int n;      
+      if (start == NULL) {
+         printf("Linked list is already empty.\n");
+         return;
+      } 
+      count--;
+      if (start->next == NULL) {
+         n = start->data;
+         free(start);
+         start = NULL;
+         printf("%d deleted from end successfully.\n", n);
+         return;
+      } 
+      t = start; 
+      while (t->next != NULL) {
+         u = t;
+         t = t->next;
+      } 
+      n = t->data;
+      u->next = NULL;
+      free(t); 
       printf("%d deleted from end successfully.\n", n);
-      return;
-   }
-   t = first;
-   while (t->link != NULL) {
-      u = t;
-      t = t->link;
-   }
-   n = t->data;
-   u->link = NULL;
-   free(t);
-   printf("%d deleted from end successfully.\n", n);
-}
-int main(){
-
-
-return 0;
-getch(); 
 }
