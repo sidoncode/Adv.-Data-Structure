@@ -131,8 +131,8 @@ void delete_from_end() {
          u = t;
          t = t->next;
       } 
-      n = t->data;
-      u->next = NULL;
-      free(t); 
-      printf("%d deleted from end successfully.\n", n);
+   n = t->data;
+   u->next = NULL;
+   free(t); 
+   printf("%d deleted from end successfully.\n", n);
 }
