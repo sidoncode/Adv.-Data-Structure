@@ -8,6 +8,9 @@ struct node{
 };
 struct node* head = NULL;
 
+void insert_at_begin(int);
+void insert_at_end();
+
 void insert_at_begin(int x){
    struct node* nextnode;
    nextnode = (struct node*)malloc(sizeof(struct node));
@@ -21,13 +24,12 @@ void insert_at_begin(int x){
       nextnode->next = head;
       head = nextnode;
    }
-   
 }
 
 
 void insert_at_end(){
    struct node* nextnode;
-
+   
 
 
 }
