@@ -11,7 +11,7 @@ struct node{
 struct node* create(){
     struct node* t;
     int x;
-    t =( int*)malloc(sizeof(struct node));
+    t =(struct node*)malloc(sizeof(struct node));
     printf("Enter the data for the insertion\n");
     scanf("%d",&x);
     t->data = x;
