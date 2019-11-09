@@ -27,14 +27,11 @@ void insert_at_begin(int x){
 }
 
 
-void insert_at_end(){
+void insert_at_end(int x){
    struct node* nextnode;
-   
-
-
+   nextnode = (struct node*)malloc(sizeof(struct node));
+   nextnode->data = x;
 }
-
-
 
 int main(){
 
