@@ -32,6 +32,15 @@ void insert_at_end(int x){
    nextnode = (struct node*)malloc(sizeof(struct node));
    nextnode->data = x;
 }
+void delete_at_begin(){
+   struct node* t;
+   if(head ==  NULL)
+      printf("Empty\n");
+   int n;
+   n = head->data;
+   t=head->next;
+   free(head);
+}
 
 int main(){
 
