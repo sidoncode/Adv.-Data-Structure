@@ -40,7 +40,20 @@ void delete_at_begin(){
    n = head->data;
    t=head->next;
    free(head);
+   head = t;
 }
+
+void delete_at_end(){
+   struct node* temp;
+   while(temp->next != NULL){
+      temp= temp->next;
+   }
+   int del_data;
+   del_data = temp->data;
+   
+   free(temp);
+}
+
 
 int main(){
 
