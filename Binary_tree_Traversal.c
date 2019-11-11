@@ -21,8 +21,6 @@ void in_order(struct node* root){
 void post_order(struct node* root){
     if(root == 0)
         printf("The tree is empty\n");
-    
-    
     post_order(root->left);
     post_order(root->right);
     printf("%d",root->data);
@@ -37,10 +35,6 @@ void pre_order(struct node* root){
 }
 
 int main(){
-
-
-
-
     gethch();
     return 0;
 }
