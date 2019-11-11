@@ -45,12 +45,30 @@ void delete_at_begin(){
 
 void delete_at_end(){
    struct node* temp;
-   while(temp->next != NULL){
-      temp= temp->next;
-   }
-   int del_data;
-   del_data = temp->data;
+   struct node* u;
+   int del_element;
    
+   //temp is used for the traversing
+   
+   if(head == NULL){ 
+      printf("Empty\n");
+   }
+   
+   if(head->next == NULL){
+      del_element = head->data;
+      free(head);
+      head->next = NULL;
+   }
+
+   temp = head;
+
+   while(temp->next != NULL){
+      u = temp;
+      temp = temp->next; 
+   }
+
+   del_element = temp->data;
+   u->next = NULL;
    free(temp);
 }
 
