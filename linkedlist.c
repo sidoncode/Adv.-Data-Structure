@@ -72,6 +72,16 @@ void delete_at_end(){
    free(temp);
 }
 
+void traverse(){
+   struct node* temp;
+   while(temp->next != NULL){
+      temp = temp->next;
+   }
+}
+
+void 
+
+
 
 int main(){
 
