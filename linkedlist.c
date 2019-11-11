@@ -79,7 +79,16 @@ void traverse(){
    }
 }
 
-void 
+void insert_at_pos(int pos){
+   int i;
+   struct node* temp;
+   for(i=0; temp != NULL; i<=pos-1;i++){
+      temp = temp->next;
+   }
+   struct node *next = temp->next->next;
+   free(temp);
+   temp->next = next;
+}
 
 
 
