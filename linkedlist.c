@@ -13,7 +13,7 @@ void insert_at_end();
 
 void insert_at_begin(int x){
    struct node* nextnode;
-   nextnode = (struct node*)malloc(sizeof(struct node));
+   nextnode = (struct node*)malloc(sizeof(struct node)); //global define is required for the execution of fx i.e called del_at_pos
    if(head == NULL){
       head = nextnode;
       nextnode->data = x;
