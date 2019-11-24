@@ -23,7 +23,6 @@ void pop(){
         printf("No element\n");
     }
     else{
-        /* code */
         t = top;
         top  = top ->link;
         t->link = NULL;
