@@ -46,6 +46,7 @@ int main(){
     push();
     push();
     display();
+    pop();
 
 getch();
 return 0; 
