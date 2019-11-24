@@ -26,6 +26,8 @@ void pop(){
         /* code */
         t = top;
         top  = top ->link;
+        t->link = NULL;
+        free(t);
     }
     
 }
