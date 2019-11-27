@@ -12,7 +12,6 @@ struct node *root;
 void in_order(struct node* root){
     if(root == 0)
         printf("The tree is empty\n");
-        
     in_order(root->left);
     printf("%d",root->data);
     in_order(root->right);
