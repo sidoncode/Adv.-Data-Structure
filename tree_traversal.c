@@ -102,7 +102,9 @@ int main(){
     for(i=0;i<10;i++){
         scanf("%d",&a[i]);
     }
-    insert(a[i]);
+    for(i=0;i<10;i++){
+        insert(a[i]);
+    }
     key = 10;
     struct B_tree* temp =search(key);
     if(temp != NULL){
@@ -112,13 +114,13 @@ int main(){
     }
     printf("Following are the tree traversal\n\n");
     
-    printf("Below is the tree traversal of IN ORDER");
+    printf("Below is the tree traversal of IN ORDER\n");
     in_order(root);
     
-    printf("Below is the tree traversal of POST ORDER");
+    printf("Below is the tree traversal of POST ORDER\n");
     post_order(root);
 
-    printf("Below is the tree traversal of PRE ORDER");
+    printf("Below is the tree traversal of PRE ORDER\n");
     pre_order(root);
     getch();
     return 0;
