@@ -15,7 +15,7 @@ void insert(int data){
     struct B_tree* parent;
     struct B_tree* current_node;
     struct B_tree* temp;
-    /**struct B_tree*
+    /**struct B_tree
     struct B_tree**/
     temp = (struct B_tree*)malloc(sizeof(struct B_tree));
     temp ->data =data;
@@ -122,6 +122,7 @@ int main(){
 
     printf("Below is the tree traversal of PRE ORDER\n");
     pre_order(root);
+    
     getch();
     return 0;
 }
