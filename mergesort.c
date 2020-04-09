@@ -9,7 +9,9 @@ int b[10];
 void merging(int low, int mid, int high) {
    int l1, l2, i;
 
-   // only remember this loop //
+   // only remember this loop // 
+   // the master loop //
+   
    for(l1 = low, l2 = mid + 1, i = low; l1 <= mid && l2 <= high; i++) {
       if(a[l1] <= a[l2])
          b[i] = a[l1++];
